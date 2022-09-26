@@ -1,20 +1,20 @@
 import { useState } from "react"
-import { SaveUser } from "./components/SaveUser"
-import { TableUsers } from "./components/TableUsers"
+import { SavePost } from "./components/SavePost"
+import { TablePosts } from "./components/TablePosts"
 
 
   export const App = () => {
     const [list, setList] = useState([])
 
-    function  handleSaveUser(user){
+    function  handleSavePost(post){
       let newList = [...list]
-      newList.push(user)
+      newList.push(post)
       setList(newList)
     }
     return (
       <>
-        <SaveUser onAddUser={handleSaveUser} />
-        <TableUsers list={list} />
+        <SavePost onAddPost={handleSavePost} />
+        <TablePosts list={list} />
       </>
     )
   }

@@ -6,22 +6,25 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { TableUser } from "../TableUser"
+import { TablePost } from "../TablePost"
 
-export const TableUsers = ({list}) => {
+export const TablePosts = ({list}) => {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                 <TableHead>
                     <TableRow>
-                        <TableCell align="right">Nome</TableCell>
-                        <TableCell align="right">E-mail</TableCell>
+                        <TableCell align="right">Foto Perfil</TableCell>
+                        <TableCell align="right">Nome de Usuário</TableCell>
+                        <TableCell align="right">Descrição</TableCell>
+                        <TableCell align="right">Foto Post</TableCell>
                     </TableRow>
                 </TableHead>
-                    {list.map((user, index) => (
-                        <TableUser key={index} name={user.name} email={user.email} />
-                    ))}
                 <TableBody>
+                {list.map((post, index) => (
+                        <TablePost key={index} fotoPerfil={post.fotoPerfil} nomeUsuario={post.nomeUsuario} 
+                        descricao={post.descricao} fotoPost={post.fotoPost} />
+                    ))}
                 </TableBody>
             </Table>
         </TableContainer>
